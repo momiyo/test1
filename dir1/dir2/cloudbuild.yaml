@@ -1,0 +1,18 @@
+steps:
+- name: "bash"
+  args: ["echo", "Hello, World!"]
+
+- name: "bash"
+  args: ["pwd"]
+  
+- name: "bash"
+  args: ["ls -al"]
+
+- name: 'python:3.8'
+  entrypoint: sh
+  args: [
+    'test.sh', 
+    '$_BUILD_ENV',
+    ]
+  id: '00_00'
+  waitFor: ['-']
