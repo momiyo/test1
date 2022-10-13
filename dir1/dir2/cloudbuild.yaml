@@ -1,12 +1,18 @@
 steps:
 - name: "bash"
   args: ["echo", "Hello, World!"]
+  id: '00_00'
+  waitFor: ['-']
 
 - name: "bash"
   args: ["pwd"]
+  id: '00_01'
+  waitFor: ['00_00']
   
 - name: "bash"
   args: ["ls -al"]
+  id: '00_02'
+  waitFor: ['00_01']
 
 - name: 'python:3.8'
   entrypoint: sh
@@ -14,5 +20,5 @@ steps:
     'test.sh', 
     '$_BUILD_ENV',
     ]
-  id: '00_00'
-  waitFor: ['-']
+  id: '01_00'
+  waitFor: ['00_02']
