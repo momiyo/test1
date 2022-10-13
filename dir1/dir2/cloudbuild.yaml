@@ -17,13 +17,13 @@ steps:
 - name: "bash"
   args: ["pwd"]
   id: '00_03'
-  waitFor: ['00_00']
+  waitFor: ['00_02']
   dir: "dir1/dir2"
   
 - name: "bash"
   args: ["ls","-al"]
   id: '00_04'
-  waitFor: ['00_01']
+  waitFor: ['00_03']
   dir: "dir1/dir2"
 
 - name: 'python:3.8'
@@ -34,4 +34,4 @@ steps:
     ]
   id: '01_00'
   dir: "dir1/dir2"
-  waitFor: ['00_02']
+  waitFor: ['00_04']
