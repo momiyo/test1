@@ -14,6 +14,18 @@ steps:
   id: '00_02'
   waitFor: ['00_01']
 
+- name: "bash"
+  args: ["pwd"]
+  id: '00_01'
+  waitFor: ['00_00']
+  dir: "dir1/dir2"
+  
+- name: "bash"
+  args: ["ls","-al"]
+  id: '00_02'
+  waitFor: ['00_01']
+  dir: "dir1/dir2"
+
 - name: 'python:3.8'
   entrypoint: sh
   args: [
@@ -21,4 +33,5 @@ steps:
     '$_BUILD_ENV',
     ]
   id: '01_00'
+  dir: "dir1/dir2"
   waitFor: ['00_02']
