@@ -16,13 +16,13 @@ steps:
 
 - name: "bash"
   args: ["pwd"]
-  id: '00_01'
+  id: '00_03'
   waitFor: ['00_00']
   dir: "dir1/dir2"
   
 - name: "bash"
   args: ["ls","-al"]
-  id: '00_02'
+  id: '00_04'
   waitFor: ['00_01']
   dir: "dir1/dir2"
 
