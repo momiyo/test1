@@ -10,7 +10,7 @@ steps:
   waitFor: ['00_00']
   
 - name: "bash"
-  args: ["ls -al"]
+  args: ["ls","-al"]
   id: '00_02'
   waitFor: ['00_01']
 
